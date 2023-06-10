@@ -39,7 +39,7 @@ exports.save = async (req, res) => {
         })
         await user.save();
         
-        res.redirect("/");
+        res.redirect("/user/");
     } catch (error) {
         res.send(error);
     }
