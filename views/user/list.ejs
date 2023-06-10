@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("../head.ejs") %>
+    <title>List User</title>
+    <style>
+        .nav-link.dropdown-toggle :hover {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include("../nav.ejs") %>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-11">Page List user</div>
+                    <div class="col-1">
+                        <div class="row">
+                            <div class="col">
+                                <a href="#">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <div class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fa-solid fa-user"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><a class="dropdown-item" href="#">Logout</a></li>
+                                      <li><a class="dropdown-item" href="/#">Change_password</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>Danh sách sản phẩm:</h2>
+                <a href="/user/create">Add product</a>
+                <table class="table">
+                    <thead>
+                        <th>###</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Mobile Number</th>
+                        <th>UserName</th>
+                        <th>Password</th>
+                        <th>Action1</th>
+                        <th>Action2</th>
+                
+                    </thead>
+                    <tbody>
+                        <% users.forEach(e=>{ %>
+                            <tr>
+                                <td>
+                                    <%= e._id %>
+                                </td>
+                                <td>
+                                    <%= e.firstName %>
+                                </td>
+                                <td>
+                                    <%= e.lastName %>
+                                </td>
+                                <td>
+                                    <%= e.mobile %>
+                                </td>
+                                <td>
+                                    <%= e.username %>
+                                </td>
+                                <td>
+                                    <%= e.password %>
+                                </td>
+                                <td>
+                                    <a style="background-color: rgb(146, 96, 96); color: white; border-color: rgb(146, 96, 96);" href="/#" class="btn btn-outline-primary">Edit</a>
+                                </td>
+                                <td>
+                                    <a style="background-color: rgb(209, 15, 15);color: white;border-color: rgb(209, 15, 15);" href="/#" class="btn btn-outline-primary" 
+                                        onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')">Delete</a>
+                                      
+                                </td>
+                            
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+</body>
+
+</html>
